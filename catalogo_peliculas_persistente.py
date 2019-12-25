@@ -8,7 +8,7 @@ class Pelicula:
         self.titulo = titulo
         self.duracion = duracion
         self.lanzamiento = lanzamiento
-        #print('Se ha creado la película:',self.titulo)
+        print('Se ha creado la película:',self.titulo)
         
     # Redefinición del método String. Al imprimir p, devolverá este formato
     def __str__(self):
