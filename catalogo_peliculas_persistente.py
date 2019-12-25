@@ -95,14 +95,13 @@ c.agregar(P1)
 c.agregar(P2)
 c.agregar(P3)
 
-
 c=Catalogo()
-
 c.agregar(P4)
 
 c.mostrar() 
 c.eliminar(P1)
 c.eliminar(P2)
 c.eliminar(P3)
+
 c.mostrar() 
 c=Catalogo()
