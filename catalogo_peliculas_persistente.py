@@ -86,10 +86,10 @@ c= Catalogo()
 
 c.mostrar() 
 
-P1=Pelicula("P1",175,1920)
-P2=Pelicula("P2",200,1974)
-P3=Pelicula("P3",250,1999)
-P4=Pelicula("P4",250,1999)
+P1=Pelicula("Cadena Perpetua",142,1995)
+P2=Pelicula("El silencio de los corderos",138,1991)
+P3=Pelicula("El precio del poder",170,1984)
+P4=Pelicula("Psicosis",109,1971)
 
 c.agregar(P1)
 c.agregar(P2)
