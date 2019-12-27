@@ -1,5 +1,5 @@
 from tkinter import * # importamos todas las funciones del módulo tkinter
-from tkinter import filedialog as FileDialog # importamos  filedialog
+from tkinter import filedialog as FileDialog #importamos  filedialog
 from io import open # importamos la función open del módulo io para trabajar con ficheros de texto
 
 ruta = "" # para almacenar la ruta del fichero de texto
@@ -54,6 +54,10 @@ def guardar_como():
 	else: 
 		mensaje.set("Guardado cancelado")
 		ruta = ""
+
+def ayuda():
+	contenido= "Este es un editor de texto cuya interfaz gráfica ha sido creada con el módulo tkinter.\nWidgets utilizados: Tk(raíz), Menu, Text.\nA través de un menú desplegable se pueden abrir, guardar y crear nuevos ficheros de texto."
+	texto.insert('insert',contenido)
 #------------------------------------------#
 
 # Configuración de la raíz
@@ -64,18 +68,23 @@ root.title("Editor de texto con tkinter")
 # Menú superior
 menubar = Menu(root) # menubar es un widget de tipo Menu
 filemenu = Menu(menubar, tearoff=0)
+helpmenu = Menu(menubar, tearoff=0)
+
 filemenu.add_command(label="Nuevo", command=nuevo)
 filemenu.add_command(label="Abrir", command=abrir)
 filemenu.add_command(label="Guardar", command=guardar)
 filemenu.add_command(label="Guardar como", command=guardar_como)
 filemenu.add_separator()
 filemenu.add_command(label="Salir", command=root.quit)
+
+helpmenu.add_command(label="Ayuda",command=ayuda)
 menubar.add_cascade(menu=filemenu, label="Archivo")
+menubar.add_cascade(menu=helpmenu, label="Ayuda")
 
 # Cuadro de texto central
 texto = Text(root) # texto es un widget de tipo Text (texto largo)
 texto.pack(fill="both", expand=1)
-texto.config(bd=0, padx=6, pady=4, font=("Consolas",12))
+texto.config(bg="lightblue",bd=0, padx=6, pady=4, font=("Consolas",12),selectbackground="blue")
 
 # Monitor inferior
 mensaje = StringVar() # mensaje es una variable dinámica
