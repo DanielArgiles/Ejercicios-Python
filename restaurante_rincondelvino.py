@@ -1,6 +1,6 @@
 import sqlite3
 
-def crear_bbdd(): # Función que crea la base de datos restaurante_python.db
+def crear_bbdd(): # Función que crea la base de datos restaurante_rincondelvino.db
 	conexion = sqlite3.connect("restaurante_rincondelvino.db")
 	cursor = conexion.cursor()
 
