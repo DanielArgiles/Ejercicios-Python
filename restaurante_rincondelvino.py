@@ -126,7 +126,7 @@ while True:
 		print("Opción Incorrecta")
 
 # Llegados a este punto, no ejecutar con ctrl + b en Sublime Text, ya que no nos permite introducir valores por teclado, sino que lo ejecutamos como un script desde cmd.
-# cd directorio y restaurante_rincondelvino.py
+# cd directorio y python restaurante_rincondelvino.py
 
 '''
 Probar código:
