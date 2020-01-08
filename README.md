@@ -12,3 +12,7 @@ A través de un menú desplegable se pueden abrir, guardar y crear nuevos ficher
 ## Ejercicio 3 : Gestor de platos del menú de un restaurante con SQLite
 En este ejercicio se crea un gestor de categorías y platos del menú de un restaurante (restaurante_rincondelvino.py) mediante una base de datos (restaurante_rincondelvino.db) creada con SQLite.
 Inspector externo: DB Browser for SQLite.
+
+## Ejercicio 4 : Menú de un restaurante con tkinter y SQLite
+En este ejercicio se crea la interfaz gráfica del menú de un restaurante (menu_restaurante_rincondelvino.py).
+El programa se conecta a la base de datos del Ejercicio 3 (restaurante_rincondelvino.db) para buscar y añadir la lista de categorías y platos.
