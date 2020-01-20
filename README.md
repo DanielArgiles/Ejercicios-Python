@@ -16,3 +16,8 @@ Inspector externo: DB Browser for SQLite.
 ## Ejercicio 4 : Menú de un restaurante con tkinter y SQLite
 En este ejercicio se crea la interfaz gráfica del menú de un restaurante (menu_restaurante_rincondelvino.py).
 El programa se conecta a la base de datos del Ejercicio 3 (restaurante_rincondelvino.db) para buscar y añadir la lista de categorías y platos.
+
+## Ejercicio 5 : Lectura de un Libro de Excel en Pandas con los métodos iloc y loc
+En este ejercicio se realiza algunas pruebas de selección e impresión de las diferentes filas y columnas de un Libro de Excel (clientes.xlsx), haciendo uso de la librería Pandas.
+Inicialmente se transforma cada Hoja del Libro de Excel en un DataFrame, para después leer los datos con los métodos iloc y loc.
+
