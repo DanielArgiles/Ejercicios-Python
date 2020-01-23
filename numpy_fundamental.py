@@ -176,11 +176,11 @@ print(arr[menor_5])
 print(arr[(np.mod(arr, 2) == 0) & (arr > 5)])
 
 
-print("\nañadir elementos en arrays de Numpy con np.append()")
+print("\nAñadir elementos en arrays de Numpy con np.append()")
 arr = np.array([1, 2, 3, 4, 5])
 print(arr)
 print(np.append(arr, 10))
-print(np.append(arr, [11, 12])) #A gregar otro array
+print(np.append(arr, [11, 12])) #Agregar otro array
 mat = np.array([[1, 2, 3],[4, 5, 6]])
 print(mat)
 print(np.append(mat, [11, 12])) # Agregar elementos en matrices, se agrega en forma de array
@@ -188,7 +188,7 @@ print(np.append(mat, [[11, 12, 13]], axis=0)) # Agregar nueva fila
 print(np.append(mat, [[11], [12]], axis=1)) # Agregar nueva columna 
 
 
-print("\ninicializar arrays de Numpy con un valor")
+print("\nInicializar arrays de Numpy con un valor")
 print(np.full(5, 0))
 print(np.full(5, 10))
 print(np.full((3, 2), 0)) # 3 filas y 2 columnas con todo 0
