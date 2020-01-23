@@ -20,4 +20,7 @@ El programa se conecta a la base de datos del Ejercicio 3 (restaurante_rincondel
 ## Ejercicio 5 : Lectura de un Libro de Excel en Pandas con los métodos iloc y loc
 En este ejercicio se realiza algunas pruebas de selección e impresión de las diferentes filas y columnas de un Libro de Excel (clientes.xlsx), haciendo uso de la librería Pandas.
 Inicialmente se transforma cada Hoja del Libro de Excel en un DataFrame, para después leer los datos con los métodos iloc y loc.
-Nombre del script: clientes.py.
+Nombre del script: clientes_pandas.py.
+
+## Ejercicio 5 : Numpy fundamental
+Script(numpy_fundamental.py) con tareas fundamentales que se pueden realizar con la librería Numpy.
