@@ -24,3 +24,10 @@ Nombre del script: clientes_pandas.py.
 
 ## Ejercicio 5 : Numpy fundamental
 Script(numpy_fundamental.py) con tareas fundamentales que se pueden realizar con la librería Numpy.
+
+## Ejercicio 6 : Detector de colores de una imagen con Pandas y OpenCV
+En este ejercicio se construye una aplicación a través de la cual se puede obtener automáticamente el nombre del color haciendo doble clic en las diferentes zonas de una imagen (colorpic.jpg).
+Nombre del script con código fuente :color_detection.py.
+Tenemos un archivo de datos (colors.csv) que incluye 865 nombres de colores junto con sus valores RGB y hexadecimales, sabiendo que los colores se componen de 3 colores primarios; rojo, verde y azul. 
+Para obtener el nombre del color correctamente, calculamos una distancia (d) que nos dice como de cerca estamos del color y elegimos el que tiene la distancia mínima.
+d = abs (Rojo - ithRedColor) + (Verde - ithGreenColor) + (Azul - ithBlueColor).
