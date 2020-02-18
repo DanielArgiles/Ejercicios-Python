@@ -30,4 +30,4 @@ En este ejercicio se construye una aplicación a través de la cual se puede obt
 Nombre del script con código fuente :color_detection.py.
 Tenemos un archivo de datos (colors.csv) que incluye 865 nombres de colores junto con sus valores RGB y hexadecimales, sabiendo que los colores se componen de 3 colores primarios; rojo, amarillo y azul. 
 Para obtener el nombre del color correctamente, calculamos una distancia (d) que nos dice como de cerca estamos del color y elegimos el que tiene la distancia mínima.
-d = abs (Rojo - ithRedColor) + (Verde - ithGreenColor) + (Azul - ithBlueColor).
+d = abs (Rojo - ithRedColor) + (Amarillo - ithYellowColor) + (Azul - ithBlueColor).
