@@ -56,14 +56,15 @@ while(1):
         cv2.rectangle(img,(20,20), (750,60), (b,g,r), -1)
 
         # Creamos una cadena de texto para mostrar (nombre de color y valores RGB)
-        text = getColorName(r,g,b) + ' R='+ str(r) +  ' G='+ str(g) +  ' B='+ str(b)
+        text = getColorName(r,g,b) +', Red='+ str(r) +  ', Green='+ str(g) +  ', Blue='+ str(b)
+        
         
         #cv2.putText(img,text,start,font(0-7),fontScale,color,thickness,lineType )
-        cv2.putText(img, text,(50,50),2,0.8,(255,255,255),2,cv2.LINE_AA)
+        cv2.putText(img, text,(50,50),3,0.6,(255,255,255),1,cv2.LINE_AA)
 
         # Para colores muy claros, mostraremos el texto en color negro
         if(r+g+b>=600):
-            cv2.putText(img, text,(50,50),2,0.8,(0,0,0),2,cv2.LINE_AA)
+            cv2.putText(img, text,(50,50),3,0.6,(0,0,0),1,cv2.LINE_AA)
             
         clicked=False
 
@@ -74,6 +75,6 @@ while(1):
 cv2.destroyAllWindows()
 
 """" 
-Ejecutamos el archivo python desde cmd : python color_detection.py -i <ruta de la imagen a analizar>
+Ejecutamos el archivo python desde cmd : python color_detection.py -i <ruta de la imagen a analizar: color_animales.jpg>
 Hacemos Doble clic en la ventana para conocer el nombre del color
 """
