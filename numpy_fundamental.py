@@ -214,7 +214,7 @@ arr2D[1] = arr2D[1, ::-1] #  invertir una sola columna (columna 1)
 print("")
 print(arr2D)
 
-print("\Otros métodos")
+print("\nOtros métodos")
 print(np.linspace(0,30,10))
 print(np.random.randint(0,100))
 array= np.random.randint(0,100,10)
