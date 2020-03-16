@@ -213,3 +213,16 @@ arr2D[:, 1] = arr2D[::-1, 1] # Invertir solamente una fila o columna
 arr2D[1] = arr2D[1, ::-1] #  invertir una sola columna (columna 1)
 print("")
 print(arr2D)
+
+print("\Otros métodos")
+np.linspace(0,30,10)
+np.random.randint(0,100)
+array= np.random.randint(0,100,10)
+print(array.max())
+print(array.argmax())
+print(array.min())
+print(array.mean())
+print(array.reshape(5,2))
+print(array[2][0])
+filtro=array>30
+print(array2=array[filtro])
