@@ -33,7 +33,11 @@ Script(numpy_fundamental.py) con tareas fundamentales que se pueden realizar con
 En este ejercicio se realiza algunas pruebas de visualización de datos.
 Script: pruebas_matplotlib.py
 
-## Ejercicio 9 : Detector de colores de una imagen con Pandas (Data Science) y OpenCV (Visión Artificial)
+## Ejercicio 8 : Pruebas con Scikit Learn
+En este ejercicio se realiza unas pruebas para dividir un conjunto de datos disponible en datos para entrenamiento y en datos para test.
+Script: pruebas_scikitlearn.py
+
+## Ejercicio 10 : Detector de colores de una imagen con Pandas (Data Science) y OpenCV (Visión Artificial)
 En este ejercicio se construye una aplicación a través de la cual se puede obtener automáticamente el nombre del color haciendo doble clic en las diferentes zonas de una imagen (color_animales.jpg).
 Nombre del script: detector_colores.py.
 Tenemos un archivo de datos (colores.csv) que incluye 865 nombres de colores junto con sus valores RGB y hexadecimales, sabiendo que los colores se componen de 3 colores primarios; rojo, verde y azul (RGB). 
