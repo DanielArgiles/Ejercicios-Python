@@ -33,7 +33,7 @@ Script(numpy_fundamental.py) con tareas fundamentales que se pueden realizar con
 En este ejercicio se realiza algunas pruebas de visualización de datos.
 Script: pruebas_matplotlib.py
 
-## Ejercicio 8 : Pruebas con Scikit Learn
+## Ejercicio 9 : Pruebas con Scikit Learn
 En este ejercicio se realiza unas pruebas para dividir un conjunto de datos disponible en datos para entrenamiento y en datos para test.
 Script: pruebas_scikitlearn.py
 
