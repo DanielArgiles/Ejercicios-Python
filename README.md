@@ -17,15 +17,19 @@ Inspector externo: DB Browser for SQLite.
 En este ejercicio se crea la interfaz gráfica del menú de un restaurante (menu_restaurante_rincondelvino.py).
 El programa se conecta a la base de datos del Ejercicio 3 (restaurante_rincondelvino.db) para buscar y añadir la lista de categorías y platos.
 
-## Ejercicio 5 : Lectura de un Libro de Excel en Pandas con los métodos iloc y loc
+## Ejercicio 5 : Lectura de Hoja de Cálculo Excel (xlsx) con Pandas
 En este ejercicio se realiza algunas pruebas de selección e impresión de las diferentes filas y columnas de un Libro de Excel (clientes.xlsx), haciendo uso de la librería Pandas.
 Inicialmente se transforma cada Hoja del Libro de Excel en un DataFrame, para después leer los datos con los métodos iloc y loc.
-Nombre del script: clientes_pandas.py.
+Script: clientes_pandas.py.
 
-## Ejercicio 5 : Numpy fundamental
-Script(numpy_fundamental.py) con tareas fundamentales que se pueden realizar con la librería Numpy.
+## Ejercicio 6 : Lectura de un fichero de Excel (csv) con Pandas 
+En este ejercicio se realiza algunas pruebas de tratamiento de datos de un fichero csv (valores separados por comas) con el nombre personas.csv, mediante la librería Pandas.
+Script: personas_pandas.py
 
-## Ejercicio 6 : Detector de colores de una imagen con Pandas (Data Science) y OpenCV (Visión Artificial)
+## Ejercicio 7 : NumPy fundamental
+Script(numpy_fundamental.py) con tareas fundamentales que se pueden realizar con la librería NumPy.
+
+## Ejercicio 8 : Detector de colores de una imagen con Pandas (Data Science) y OpenCV (Visión Artificial)
 En este ejercicio se construye una aplicación a través de la cual se puede obtener automáticamente el nombre del color haciendo doble clic en las diferentes zonas de una imagen (color_animales.jpg).
 Nombre del script: detector_colores.py.
 Tenemos un archivo de datos (colores.csv) que incluye 865 nombres de colores junto con sus valores RGB y hexadecimales, sabiendo que los colores se componen de 3 colores primarios; rojo, verde y azul (RGB). 
