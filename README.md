@@ -26,8 +26,9 @@ Script: clientes_pandas.py.
 En este ejercicio se realiza algunas pruebas de tratamiento de datos de un fichero csv (valores separados por comas) con el nombre personas.csv, mediante la librería Pandas.
 Script: personas_pandas.py
 
-## Ejercicio 7 : NumPy fundamental
-Script(numpy_fundamental.py) con tareas fundamentales que se pueden realizar con la librería NumPy.
+## Ejercicio 7 : Pruebas con NumPy
+En este ejercicio se realiza algunas pruebas básicas con NumPy.
+Script: pruebas_numpy.py
 
 ## Ejercicio 8 : Pruebas con Matplotlib (Visualización de datos)
 En este ejercicio se realiza algunas pruebas de visualización de datos.
