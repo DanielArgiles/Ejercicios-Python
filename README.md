@@ -44,3 +44,7 @@ Nombre del script: detector_colores.py.
 Tenemos un archivo de datos (colores.csv) que incluye 865 nombres de colores junto con sus valores RGB y hexadecimales, sabiendo que los colores se componen de 3 colores primarios; rojo, verde y azul (RGB). 
 Para obtener el nombre del color correctamente, calculamos una distancia (d) que nos dice como de cerca estamos del color y elegimos el que tiene la distancia mínima.
 d = abs (Rojo - ithRedColor) + (Verde - ithGreenColor) + (Azul - ithBlueColor).
+
+## Ejercicio 11 : Pruebas con TensorFlow
+En este ejercicio se realiza algunas pruebas de sintáxis básica de TensorFlow.
+Script: pruebas_tensorflow.py
