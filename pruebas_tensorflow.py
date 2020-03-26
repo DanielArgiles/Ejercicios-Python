@@ -35,4 +35,6 @@ grafo1=tf.Graph()
   
 # Conseguir que nuestro grafo sea grafo por defecto para una serie de operaciones
 with grafo1.as_default():
-    print(grafo1 is tf.compat.v1.get_default_graph())
+    print(grafo1 is tf.compat.v1.get_default_graph()) # Imprime True
+
+print(grafo1 is tf.compat.v1.get_default_graph()) # Imprime False . Nuestro propio grafo no será grafo por defecto
