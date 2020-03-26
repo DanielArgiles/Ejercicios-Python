@@ -12,7 +12,7 @@ matriz_ceros=tf.zeros((2,2))
 matriz_unos=tf.ones((3,3))
 operaciones=[constante,matriz1,matriz2,matriz3,matriz_ceros,matriz_unos]
 
-
+# Grafos en TensorFlow (nodo 3= nodo 1 (operación) nodo 2)
 
 with tf.compat.v1.Session() as sesion:
     resultado1=sesion.run(mensaje1 + mensaje2))
@@ -26,3 +26,13 @@ with tf.compat.v1.Session() as sesion:
     for op in operaciones:
         print(sesion.run(op))
         print("\n")
+        
+# Crear un grafo por defecto  
+ print(tf.compat.v1.get_default_graph())
+
+# Crear nuestro propio grafo
+grafo1=tf.Graph()
+  
+# Conseguir que nuestro grafo sea grafo por defecto para una serie de operaciones
+with grafo1.as_default():
+    print(grafo1 is tf.compat.v1.get_default_graph())
