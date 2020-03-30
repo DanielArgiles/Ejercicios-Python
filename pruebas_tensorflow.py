@@ -52,7 +52,7 @@ inicializador=tf.compat.v1.global_variables_initializer() # Las variables necesi
 with tf.compat.v1.Session() as sesion:
     sesion.run(inicializador) # Inicializamos las variables
     resultado=sesion.run(variable) # Ejecutamos la variable
- print(resultado) # Mostramos la variable
+print(resultado) # Mostramos la variable
 
 # Placeholders están inicialmente vacíos y se utilizan para alimentar los ejemplos de entrenamiento del modelo.
 # Es una especie de incógnita dentro de las ecuaciones.
