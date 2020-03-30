@@ -48,3 +48,7 @@ d = abs (Rojo - ithRedColor) + (Verde - ithGreenColor) + (Azul - ithBlueColor).
 ## Ejercicio 11 : Pruebas con TensorFlow
 En este ejercicio se realiza algunas pruebas de sintáxis básica de TensorFlow.
 Script: pruebas_tensorflow.py
+
+## Ejercicio 12 : Mi primera red neuronal con TensorFlow
+En este ejercicio se realiza un ejemplo de red neuronal: Z=W*X+B
+Script: primera_red_neuronal.py
