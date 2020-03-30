@@ -1,5 +1,10 @@
 import tensorflow as tf
 
+#Ejecutar el script desde Jupyter o Anaconda Prompt. Desde cmd de Windows da error.
+#pip install tensorflow==2.0.0.  
+#conda create –n pruebastensorflow Python=3.5 tensorflow=1 jupyter numpy pandas scikit-learn matplotlib.
+#conda activate pruebastensorflow.
+
 mensaje1=tf.constant("Hola")
 mensaje2=tf.constant("mundo")
 a= tf.constant(10)
@@ -15,7 +20,7 @@ operaciones=[constante,matriz1,matriz2,matriz3,matriz_ceros,matriz_unos]
 # Grafos en TensorFlow (nodo 3= nodo 1 (operación) nodo 2)
 
 with tf.compat.v1.Session() as sesion:
-    resultado1=sesion.run(mensaje1 + mensaje2))
+    resultado1=sesion.run(mensaje1 + mensaje2)
     print(resultado1)
     
 with tf.compat.v1.Session() as sesion:
