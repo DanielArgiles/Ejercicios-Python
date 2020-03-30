@@ -60,28 +60,3 @@ print(resultado) # Mostramos la variable
 incognitas= tf.compat.v1.placeholder(tf.float32, shape= (20,20))
 print(incognitas)
 
-# Ejemplo para recordar el uso de las variables y placeholders
-aleatorio_a=np.random.uniform(0,50,(4,4))
-print(aleatorio_a)
-aleatorio_b=np.random.uniform(0,50,(4,1))
-print(aleatorio_b)
-
-tf.compat.v1.disable_eager_execution()
-a=tf.compat.v1.placeholder(tf.float32)
-b=tf.compat.v1.placeholder(tf.float32)
-
-suma=a+b
-multiplicacion=a*b
-
-with tf.compat.v1.Session() as sesion:
-    resultado_suma=sesion.run(suma,feed_dict={a:10,b:20}) # con el diccionario damos valores
-    print(resultado_suma)
-with tf.compat.v1.Session() as sesion:
-    resultado_suma=sesion.run(suma,feed_dict={a:aleatorio_a,b:aleatorio_b}) # con el diccionario damos valores
-    print(resultado_suma)
-with tf.compat.v1.Session() as sesion:
-    resultado_multiplicacion=sesion.run(multiplicacion,feed_dict={a:10,b:20}) # con el diccionario damos valores
-    print(resultado_multiplicacion)
-with tf.compat.v1.Session() as sesion:
-    resultado_multiplicacion=sesion.run(multiplicacion,feed_dict={a:aleatorio_a,b:aleatorio_b}) # con el diccionario damos valores
-    print(resultado_multiplicacion)
