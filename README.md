@@ -50,5 +50,5 @@ En este ejercicio se realiza algunas pruebas de sintáxis básica de TensorFlow.
 Script: pruebas_tensorflow.py
 
 ## Ejercicio 12 : Mi primera red neuronal con TensorFlow
-En este ejercicio se realiza un ejemplo de red neuronal: Z=W*X+B.
+En este ejercicio se realiza un ejemplo de red neuronal: Z=W*X+B. 
 Script: primera_red_neuronal.py
