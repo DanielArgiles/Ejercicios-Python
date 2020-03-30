@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 #Ejecutar el script desde Jupyter o Anaconda Prompt. Desde cmd de Windows da error.
-#pip install tensorflow==2.0.0.  
+#pip install tensorflow==2.0.0. Vemos versión con : print(tf.__version__) 
 #conda create –n pruebastensorflow Python=3.5 tensorflow=1 jupyter numpy pandas scikit-learn matplotlib.
 #conda activate pruebastensorflow.
 
