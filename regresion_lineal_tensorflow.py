@@ -8,16 +8,16 @@ datos_y= np.linspace(0,10,10)+ np.random.uniform(-1,1,10) # sumamos un pequeño 
 plt.plot(datos_x,datos_y,'*')
 plt.show()
 
-print(np.random.rand(2)) #Generamos dos números aleatorios y obtenemos 0.99 y 0.098
+print(np.random.rand(2)) # Generamos dos números aleatorios para construir la ecuación y obtenemos 0.99 y 0.098. 
 m=tf.Variable(0.99)
 b=tf.Variable(0.098)
 
-error=0
+error=0 
 for x,y in zip(datos_x,datos_y):
-    y_pred=m*x+b #valor de predicción de y (y es valor real)
+    y_pred=m*x+b # m,b son aleatorios, lo cual generará un error entre el valor real (y) y el de predicción (y_pred).
     error=error +(y-y_pred)**2 
     
-# Ahora disminuiremos al máximo el error con un optimizador
+# Ahora disminuiremos al máximo dicho error con un optimizador
 optimizador= tf.compat.v1.train.GradientDescentOptimizer(learning_rate=0.001)
 entrenamiento= optimizador.minimize(error)
 
