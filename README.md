@@ -53,6 +53,6 @@ Script: pruebas_tensorflow.py
 En este ejercicio se realiza un ejemplo de red neuronal: Z=W*X+B. 
 Script: primera_red_neuronal.py
 
-## Ejercicio 13 : Línea de regresión simple con TensorFlow
-En este ejercicio se realiza un ejemplo de línea de regresión simple: y=mx+b.
+## Ejercicio 13 : Regresión lineal simple con TensorFlow
+En este ejercicio se realiza un ejemplo de regresión lineal simple: y=mx+b.
 Script: linea_regresion_tensorflow.py
