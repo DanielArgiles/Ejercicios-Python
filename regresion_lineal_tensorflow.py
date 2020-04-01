@@ -2,7 +2,7 @@ import tensorflow as tf
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Ejemplo de regresión lineal (y= mx + b) con TensorFlow.
+# Ejemplo de regresión lineal simple (y= mx + b) con TensorFlow.
 datos_x= np.linspace(0,10,10)+ np.random.uniform(-1,1,10) # sumamos un pequeño ruido
 datos_y= np.linspace(0,10,10)+ np.random.uniform(-1,1,10) # sumamos un pequeño ruido
 plt.plot(datos_x,datos_y,'*')
