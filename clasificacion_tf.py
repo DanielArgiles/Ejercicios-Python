@@ -1,11 +1,11 @@
-# Ejemplo de Algoritmo de clasificación: A partir de los datos de un fichero de Excel (csv) llamado original.csv, se predicen los ingresos de una persona en función de sus características.
+# Ejemplo de Algoritmo de clasificación: A partir de los datos de un fichero de Excel (csv) llamado ingresos.csv, se predicen los ingresos de una persona en función de sus características.
 
 import pandas as pd
 import tensorflow as tf
 import os 
 
 os.chdir("C:\\Users\\Daniel\\CursoPython-Final\\AprendeMachineLearning")
-ingresos= pd.read_csv('original.csv')
+ingresos= pd.read_csv('ingresos.csv')
 
 ingresos['income'].unique() # nos devuelve un array con los elementos diferentes en la columna 'income'
 
