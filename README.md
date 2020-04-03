@@ -57,7 +57,12 @@ Script: primera_red_neuronal.py
 En este ejercicio se realiza un ejemplo de regresión lineal simple: y=mx+b.
 Script: regresion_lineal_simple_tf.py
 
-## Ejercicio 14 : Ejemplo de clasificación con TensorFlow, Pandas y Scikit Learn
+## Ejercicio 14 : Ejemplo de algoritmo de clasificación con TensorFlow, Pandas y Scikit Learn
 En este ejercicio se realiza un ejemplo de un algoritmo de clasificación (aprendizaje supervisado).
-A partir de los datos de un fichero de Excel (csv) llamado ingresos.csv, se predicen los ingresos de una persona en función de sus características.
+A partir de los datos de un fichero de Excel (csv) llamado ingresos.csv, se predicen los ingresos de una persona en función de sus características(edad, género, etc).
 Script: clasificacion_tf.py
+
+## Ejercicio 15 : Ejemplo de algoritmo de regresión con TensorFlow, Pandas y Scikit Learn
+En este ejercicio se realiza un ejemplo de un algoritmo de regresión (aprendizaje supervisado).
+A partir de los datos de un fichero de Excel (csv) llamado precios_casas.csv, se predice el valor medio de una casa en función de sus características(habitaciones, latitud, longitud, etc).
+Script: regresion_tf.py
