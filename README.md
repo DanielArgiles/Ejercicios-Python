@@ -66,3 +66,7 @@ Script: clasificacion_tf.py
 En este ejercicio se realiza un ejemplo de un algoritmo de regresión (aprendizaje supervisado).
 A partir de los datos de un fichero de Excel (csv) llamado precios_casas.csv, se predice el valor medio de una casa en función de sus características(habitaciones, latitud, longitud, etc).
 Script: regresion_tf.py
+
+## Ejercicio 15 : Redes Neuronales Convolucionales: Ejemplo con MNIST, TensorFlow, Keras, NumPy y Matplotlib
+En este ejercicio se realiza un ejemplo de entrenamiento de un modelo de red neuronal para clasificar y predecir dígitos escritos a mano. Para ello utilizamos MNIST (base de datos de imágenes de dígitos escritos a mano).
+Script:mnist.py
