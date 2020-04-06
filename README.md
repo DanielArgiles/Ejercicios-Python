@@ -59,7 +59,7 @@ Script: regresion_lineal_simple_tf.py
 
 ## Ejercicio 14 : Ejemplo de algoritmo de clasificación con TensorFlow, Pandas y Scikit Learn
 En este ejercicio se realiza un ejemplo de un algoritmo de clasificación (aprendizaje supervisado).
-A partir de los datos de un fichero de Excel (csv) llamado ingresos.csv, se predicen los ingresos de una persona en función de sus características(edad, género, etc).
+A partir de los datos de un fichero de Excel (csv) llamado ingresos.csv, se predicen los ingresos de una persona ((<=50 K) = 0, (>50 k)=1) en función de sus características(edad, género, etc).
 Script: clasificacion_tf.py
 
 ## Ejercicio 15 : Ejemplo de algoritmo de regresión con TensorFlow, Pandas y Scikit Learn
