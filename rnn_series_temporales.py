@@ -48,7 +48,7 @@ funcion_error=tf.reduce_mean(tf.square(salidas-y))
 optimizador=tf-train.AdamOptimizer(learning_rate=tasa_aprendizaje)
 entrenamiento=optimizador.minimize(funcion_error)
 init=tf.compat.v1.global_variables_initializer()
-saver=tf.train.Saver()
+saver=tf.train.Saver() # module 'tensorflow_core._api.v2.train' has no attribute 'Saver'
 
 with tf.compat.v1.Session() as sesion:
     sesion.run(init) # Inicializamos las variables
