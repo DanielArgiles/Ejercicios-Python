@@ -68,7 +68,7 @@ A partir de los datos de un fichero de Excel (csv) llamado precios_casas.csv, se
 Script: regresion_tf.py
 
 ## Ejercicio 16 : Ejemplo de Red Neuronal Convolucional (CNN) con MNIST, TensorFlow, Keras, NumPy y Matplotlib
-En este ejercicio se realiza un ejemplo de entrenamiento de un modelo de red neuronal para clasificar y predecir dígitos escritos a mano. Para ello utilizamos MNIST (base de datos de imágenes de dígitos escritos a mano).
+En este ejercicio se realiza un ejemplo de red neuronal convolucional (CNN), entrenando un modelo secuencial para clasificar y predecir dígitos escritos a mano. Para ello utilizamos MNIST (base de datos de imágenes de dígitos escritos a mano).
 Script: mnist.py
 
 ## Ejercicio 17 : Ejemplo de Red Neuronal Recurrente (RNN) con TensorFlow y NumPy
