@@ -133,8 +133,8 @@ plot_value_array(1, predictions_single[0], test_labels)
 _ = plt.xticks(range(10), class_names, rotation=45)
 np.argmax(predictions_single[0])
 
-
-# Para tensorflow 1.0: 
+"""
+Para tensorflow 1.0: 
 from tensorflow.examples.tutorials.mnist import input_data
 mnist=input_data.read_data_sets('MINST',one_hot=True) # Importamos los 4 ficheros que incluyen las imagenes de entrenamiento y de test y las etiquetas
 imagen=mnist.train.images[1]
@@ -143,3 +143,4 @@ mnist.test.num_examples
 type(mnist)
 imagen=imagen.reshape(28,28) # matriz 28 x 28
 plt.imshow(imagen)
+"""
