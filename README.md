@@ -69,4 +69,9 @@ Script: regresion_tf.py
 
 ## Ejercicio 16 : Redes Neuronales Convolucionales: Ejemplo con MNIST, TensorFlow, Keras, NumPy y Matplotlib
 En este ejercicio se realiza un ejemplo de entrenamiento de un modelo de red neuronal para clasificar y predecir dígitos escritos a mano. Para ello utilizamos MNIST (base de datos de imágenes de dígitos escritos a mano).
-Script:mnist.py
+Script: mnist.py
+
+## Ejercicio 17 : Ejemplo de Red Neuronal Recurrente (RNN) con TensorFlow y NumPy
+En este ejercicio se realiza un ejemplo de red neuronal recurrente (RNN) con una capa de 3 neuronas desenrollada 2 veces.
+Capa 1 (placeholder entrada x0, peso entrada Wx, salida y0= Wy), Capa 2 (placeholder entrada x1, pesos entrada Wx,Wy, salida y1).
+Script: rnn.py
