@@ -75,3 +75,7 @@ Script: cnn_mnist.py
 En este ejercicio se realiza un ejemplo de red neuronal recurrente (RNN) con una capa de 3 neuronas desenrollada 2 veces.
 Capa 1 (placeholder entrada x0, peso entrada Wx, salida y0= Wy), Capa 2 (placeholder entrada x1, pesos entrada Wx,Wy, salida y1).
 Script: rnn.py
+
+## Ejercicio 18 : Ejemplo de Red Neuronal Recurrente (RNN) mediante series temporales con TensorFlow, NumPy, Pandas y Matplotlib
+
+## Pendiente ejercicios Python para automatización, RPA, testing, mobile & web apps
