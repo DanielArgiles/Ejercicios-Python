@@ -57,25 +57,30 @@ Script: primera_red_neuronal.py
 En este ejercicio se realiza un ejemplo de regresión lineal simple: y=mx+b.
 Script: regresion_lineal_simple_tf.py
 
-## Ejercicio 14 : Ejemplo de algoritmo de clasificación con TensorFlow, Pandas y Scikit Learn
+## Ejercicio 14 : Bibliotecas: Estimator API y Keras
+Ejemplos básicos sobre como utilizar Estimator API y Keras. 
+Script: estimator_keras.py
+
+## Ejercicio 15 : Ejemplo de algoritmo de clasificación con TensorFlow, Pandas y Scikit Learn
 En este ejercicio se realiza un ejemplo de un algoritmo de clasificación (aprendizaje supervisado).
 A partir de los datos de un fichero de Excel (csv) llamado ingresos.csv, se predicen los ingresos de una persona ((<=50 K) = 0, (>50 K)=1) en función de sus características(edad, género, etc).
 Script: clasificacion_tf.py
 
-## Ejercicio 15 : Ejemplo de algoritmo de regresión con TensorFlow, Pandas y Scikit Learn
+## Ejercicio 16 : Ejemplo de algoritmo de regresión con TensorFlow, Pandas y Scikit Learn
 En este ejercicio se realiza un ejemplo de un algoritmo de regresión (aprendizaje supervisado).
 A partir de los datos de un fichero de Excel (csv) llamado precios_casas.csv, se predice el valor medio de una casa en función de sus características(habitaciones, latitud, longitud, etc).
 Script: regresion_tf.py
 
-## Ejercicio 16 : Ejemplo de Red Neuronal Convolucional (CNN) con MNIST, TensorFlow, Keras, NumPy y Matplotlib
+## Ejercicio 17 : Ejemplo de Red Neuronal Convolucional (CNN) con MNIST, TensorFlow, Keras, NumPy y Matplotlib
 En este ejercicio se realiza un ejemplo de red neuronal convolucional (CNN), entrenando un modelo secuencial para clasificar y predecir dígitos escritos a mano. Para ello utilizamos MNIST (base de datos de imágenes de dígitos escritos a mano).
 Script: cnn_mnist.py
 
-## Ejercicio 17 : Ejemplo de Red Neuronal Recurrente (RNN) con TensorFlow y NumPy
+## Ejercicio 18 : Ejemplo de Red Neuronal Recurrente (RNN) con TensorFlow y NumPy
 En este ejercicio se realiza un ejemplo de red neuronal recurrente (RNN) con una capa de 3 neuronas desenrollada 2 veces.
 Capa 1 (placeholder entrada x0, peso entrada Wx, salida y0= Wy), Capa 2 (placeholder entrada x1, pesos entrada Wx,Wy, salida y1).
 Script: rnn.py
 
-## Ejercicio 18 : Ejemplo de Red Neuronal Recurrente (RNN) mediante series temporales con TensorFlow, NumPy, Pandas y Matplotlib
+## Ejercicio 19 : Ejemplo de Red Neuronal Recurrente (RNN) mediante series temporales con TensorFlow, NumPy, Pandas y Matplotlib
 Script: rnn_series_temporales.py, Archivo Excel: produccion_leche.csv
+
 ## Pendiente ejercicios Python para Big Data (pyspark), automatización, RPA, testing, mobile & web apps (django)
