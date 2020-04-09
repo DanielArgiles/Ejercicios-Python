@@ -23,6 +23,7 @@ print(x_train_normalizado.shape) # filas 124 y columnas 13
 columnas_caracteristicas=[tf.feature_column.numeric_column('x',shape=[13])] # 13 columnas
 # Hasta aquí será igual para Estimator API y Keras
 
+#--ESTIMATOR API--#
 # Creamos el modelo de entrenamiento (de forma diferente para Estimator API y Keras)
 modelo=tf.compat.v1.estimator.DNNClassifier(hidden_units=[20,20,20],feature_columns=columnas_caracteristicas,n_classes=3,optimizer=tf.compat.v1.train.GradientDescentOptimizer(learning_rate=0.01))
 
@@ -41,7 +42,7 @@ predicciones_finales= [  p['class_ids'][0] for p in predicciones]
 from sklearn.metrics import confusion_matrix,classification_report
 print(classification_report(y_test,predicciones_finales))
 
-#---#
+#--KERAS--#
 """
 Keras, biblioteca de redes neuronales, de código abierto escrito en Python
 Es capaz de ejecutar en TensorFlow, en Microsoft cognitive o Theano
