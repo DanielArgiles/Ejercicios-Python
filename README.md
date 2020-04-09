@@ -81,6 +81,7 @@ Capa 1 (placeholder entrada x0, peso entrada Wx, salida y0= Wy), Capa 2 (placeho
 Script: rnn.py
 
 ## Ejercicio 19 : Ejemplo de Red Neuronal Recurrente (RNN) mediante series temporales con TensorFlow, NumPy, Pandas y Matplotlib
+Pendiente de revisar y migrar el código TensorFlow 1.X a TensorFlow 2.0
 Script: rnn_series_temporales.py, Archivo Excel: produccion_leche.csv
 
 ## Pendiente ejercicios Python para Big Data (pyspark), automatización, RPA, testing, mobile & web apps (django)
