@@ -9,9 +9,9 @@ print(vino['DESCR']) #Información del dataset
 caracteristicas=vino['data']
 objetivo=vino['target']
 
-# Dividimos en datos de entrenamiento y en datos de prueas (test)
+# Dividimos en datos de entrenamiento y en datos de pruebas (test)
 from sklearn.model_selection import train_test_split
-x_train,x_test,y_train,y_test=train_test_split(caracteristicas,objetivo,test_size=0.3)
+x_train,x_test,y_train,y_test=train_test_split(caracteristicas,objetivo,test_size=0.3) # Un 30% de los datos serán de prueba y un 70% de entrenaiento
 
 # Normalizamos los datos para poder trabajar con tensorflow
 from sklearn.preprocessing import MinMaxScaler
