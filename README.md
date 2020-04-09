@@ -78,4 +78,5 @@ Script: rnn.py
 
 ## Ejercicio 18 : Ejemplo de Red Neuronal Recurrente (RNN) mediante series temporales con TensorFlow, NumPy, Pandas y Matplotlib
 Script: rnn_series_temporales.py
+Archivo Excel: produccion_leche.csv
 ## Pendiente ejercicios Python para Big Data (pyspark), automatización, RPA, testing, mobile & web apps (django)
