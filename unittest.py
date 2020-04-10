@@ -1,5 +1,4 @@
 '''
-TDD:Test Driven Development.Desarrollo guiado por pruebas.
 Unit testing: Pruebas en el código para comprobar su correcto funcionamiento.
 
 Respuestas de las pruebas: 
