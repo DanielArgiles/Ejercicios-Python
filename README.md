@@ -84,4 +84,8 @@ Script: rnn.py
 Pendiente de revisar y migrar el código TensorFlow 1.X a TensorFlow 2.0.
 Script: rnn_series_temporales.py, Archivo Excel: produccion_leche.csv
 
-## Pendiente ejercicios Python para Big Data (pyspark), automatización, RPA, testing (doctest,unittest,pytest), mobile & web apps (django)
+## Ejercicio 20 : Test Driven development(TDD): Unittest
+Ejercicios de unit testing con el módulo unittest.
+Script: unittest.py
+
+## Pendiente ejercicios Python para Big Data (pyspark), automatización, RPA, testing (doctest,pytest), mobile & web apps (django)
