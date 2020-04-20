@@ -97,4 +97,4 @@ En este ejercicio se realiza pruebas de conceptos básicos de dataframes en Apac
 Archivos necesarios: appl_stock.csv,ContainsNull.csv,sales_info.csv,people.json,
 Script: pruebas_dataframes_spark.py
 
-## Pendiente ejercicios Python para Big Data (pyspark), automatización, RPA, testing (pytest), mobile & web apps (django)
+## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django)
