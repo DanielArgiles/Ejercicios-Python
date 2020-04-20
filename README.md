@@ -92,4 +92,8 @@ Script: doctest.py
 Ejercicios de unit testing con el módulo unittest.
 Script: unittest.py
 
+## Ejercicio 22 : Pruebas de dataframes en Apache Spark
+En este ejercicio se realiza pruebas de conceptos básicos de dataframes en Apache Spark, así como operaciones básicas, operaciones Aggregate y Groupby, missing data, dates and timestamps.
+Script:pruebas_dataframes_spark.py
+
 ## Pendiente ejercicios Python para Big Data (pyspark), automatización, RPA, testing (pytest), mobile & web apps (django)
