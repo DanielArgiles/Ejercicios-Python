@@ -147,3 +147,97 @@ result.withColumnRenamed("avg(Close)","Average Closing Price").show() # Cambiamo
 new= result.withColumnRenamed("avg(Close)","Average Closing Price")
 new.select(['Year',format_number('Average Closing Price',2)]).show() # La columna ahora se llama (Average Closing Price) sus valores tienen 2 decimales
 new.select(['Year',format_number('Average Closing Price',2).alias("avg(Close)")]).show() # Cambiamos el nombre a avg(Close)
+
+
+#--------#
+# Project Exercise : Use the walmart_stock.csv file to Answer and complete the tasks below!
+# Start a simple Spark Session
+from pyspark.sql import SparkSession
+spark=SparkSession.builder.appName('walmart').getOrCreate()
+# Load the Walmart Stock CSV File, have Spark infer the data types.
+df=spark.read.csv('walmart_stock.csv',inferSchema=True,header=True)
+df.show()
+# What are the column names?
+# ['Date', 'Open', 'High', 'Low', 'Close', 'Volume', 'Adj Close']
+df.columns
+#What does the Schema look like?
+df.printSchema()
+#Print out the first 5 columns.
+df.head(5)
+# Si queremos las líneas separadas
+for row in df.head(5):
+    print(row)
+    print('\n')
+# Use describe() to learn about the DataFrame
+df.describe().show()
+# Bonus Question!
+# There are too many decimal places for mean and stddev in the describe() dataframe. 
+# Format the numbers to just show up to two decimal places. 
+# Pay careful attention to the datatypes that .describe() returns, 
+# http://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.Column.cast
+# Uh oh Strings! 
+df.describe().printSchema()
+from pyspark.sql.functions import (format_number)
+result = df.describe()
+result.select(result['summary'],
+              format_number(result['Open'].cast('float'),2).alias('Open'),
+              format_number(result['High'].cast('float'),2).alias('High'),
+              format_number(result['Low'].cast('float'),2).alias('Low'),
+              format_number(result['Close'].cast('float'),2).alias('Close'),
+              result['Volume'].cast('int').alias('Volume')
+             ).show()
+df.describe()
+# Create a new dataframe with a column called HV Ratio that is the ratio of the High Price versus volume of stock traded for a day
+df2 = df.withColumn("HV Ratio",df["High"]/df["Volume"]) #.show()
+df2.show()
+df2.select('HV Ratio').show()
+# What day had the Peak High in Price
+from pyspark.sql.functions import (dayofyear)
+# Didn't need to really do this much indexing
+# Could have just shown the entire row
+df.orderBy(df['High'].desc()).show()
+df.orderBy(df["High"].desc()).head(1)[0][0]
+# What is the mean of the Close column?
+df.agg({'Close':'mean'}).show() 
+#también:
+from pyspark.sql.functions import mean
+df.select(mean("Close")).show()
+# What is the max and min of the Volume column?
+df.agg({'Volume':'max'}).show() 
+df.agg({'Volume':'min'}).show() 
+# También: 
+from pyspark.sql.functions import max,min
+df.select(max("Volume"),min("Volume")).show()
+# How many days was the Close lower than 60 dollars?
+df.filter("Close < 60").count()
+# También:
+df.filter (df['Close'] <60).count()
+# También: 
+from pyspark.sql.functions import count
+result = df.filter(df['Close'] < 60)
+result.select(count('Close')).show()
+# What percentage of the time was the High greater than 80 dollars ?
+# In other words, (Number of Days High>80)/(Total Days in the dataset)
+# 9.14 percent of the time it was over 80
+# Many ways to do this
+(df.filter(df["High"]>80).count()*1.0/df.count())*100
+# What is the Pearson correlation between High and Volume?
+# http://spark.apache.org/docs/latest/api/python/pyspark.sql.html#pyspark.sql.DataFrameStatFunctions.corr
+from pyspark.sql.functions import corr
+df.select(corr("High","Volume")).show()
+# What is the max High per year?
+from pyspark.sql.functions import year
+yeardf = df.withColumn("Year",year(df["Date"])) # Añado columna year, se obtiene de Date
+max_df = yeardf.groupBy('Year').max() # Selecciona los valores máximos de cada columna para cada año , Groupby lo usamos cuando tenemos varios valores repetidos en una columna, en este caso, los años en la columna Year.
+# 2015
+max_df.select('Year','max(High)').show()
+# What is the average Close for each Calendar Month?
+# In other words, across all the years, what is the average Close price for Jan,Feb, Mar, etc... Your result will have a value for each of these months.
+from pyspark.sql.functions import month
+monthdf = df.withColumn("Month",month("Date")) # Añado columna Month, se obtiene de Date
+monthcolumn = monthdf.select("Month","Close") # Selecciono sólo columna Month donde aparece todos los meses
+monthcolumn.show()
+monthavgs = monthcolumn.select("Month","Close").groupBy("Month").mean() # Agrupamos por meses la columna monthcolumn y calculamos su media
+monthavgs.select("Month","avg(Close)").orderBy('Month').show() # Ordenamos de menor a mayor
+
+
