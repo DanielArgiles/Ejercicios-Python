@@ -145,5 +145,5 @@ result=newdf.groupBy("Year").mean().select(["Year","avg(Close)" ])
 result.show()
 result.withColumnRenamed("avg(Close)","Average Closing Price").show() # Cambiamos de nombre avg(Close) a Average Closing Price
 new= result.withColumnRenamed("avg(Close)","Average Closing Price")
-new.select(['Year',format_number('Average Closing Price',2)]).show() # La columna ahora se llama format_number(Average Closing Price, 2) y tiene sus valores tienen 2 decimales
+new.select(['Year',format_number('Average Closing Price',2)]).show() # La columna ahora se llama (Average Closing Price) sus valores tienen 2 decimales
 new.select(['Year',format_number('Average Closing Price',2).alias("avg(Close)")]).show() # Cambiamos el nombre a avg(Close)
