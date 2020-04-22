@@ -94,7 +94,7 @@ Script: unittest.py
 
 ## Ejercicio 22 : Pruebas de dataframes en Apache Spark
 En este ejercicio se realiza pruebas de conceptos básicos de dataframes en Apache Spark, así como operaciones básicas, operaciones Aggregate y Groupby, missing data, dates and timestamps.
-Archivos necesarios: appl_stock.csv,ContainsNull.csv,sales_info.csv,people.json,
+Archivos necesarios: appl_stock.csv, ContainsNull.csv, sales_info.csv,people.json, walmart_stock.csv,
 Script: pruebas_dataframes_spark.py
 
 ## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django)
