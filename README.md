@@ -17,16 +17,16 @@ Inspector externo: DB Browser for SQLite.
 En este ejercicio se crea la interfaz gráfica del menú de un restaurante (menu_restaurante_rincondelvino.py).
 El programa se conecta a la base de datos del Ejercicio 3 (restaurante_rincondelvino.db) para buscar y añadir la lista de categorías y platos.
 
-## Ejercicio 5 : Lectura de Hoja de Cálculo Excel (xlsx) con Pandas
+## Ejercicio 5 : Lectura de Hoja de Cálculo Excel (xlsx) con Pandas (Data Science)
 En este ejercicio se realiza algunas pruebas de selección e impresión de las diferentes filas y columnas de un Libro de Excel (clientes.xlsx), haciendo uso de la librería Pandas.
 Inicialmente se transforma cada Hoja del Libro de Excel en un DataFrame, para después leer los datos con los métodos iloc y loc.
 Script: clientes_pandas.py.
 
-## Ejercicio 6 : Lectura de un fichero de Excel (csv) con Pandas 
+## Ejercicio 6 : Lectura de un fichero de Excel (csv) con Pandas (Data Science)
 En este ejercicio se realiza algunas pruebas de tratamiento de datos de un fichero csv (valores separados por comas) con el nombre personas.csv, mediante la librería Pandas.
 Script: personas_pandas.py
 
-## Ejercicio 7 : Pruebas con NumPy
+## Ejercicio 7 : Pruebas con NumPy (Data Science)
 En este ejercicio se realiza algunas pruebas básicas con NumPy.
 Script: pruebas_numpy.py
 
@@ -34,7 +34,7 @@ Script: pruebas_numpy.py
 En este ejercicio se realiza algunas pruebas de visualización de datos.
 Script: pruebas_matplotlib.py
 
-## Ejercicio 9 : Pruebas con Scikit Learn
+## Ejercicio 9 : Pruebas con Scikit Learn (Machine Learning)
 En este ejercicio se realiza unas pruebas para dividir un conjunto de datos disponible en datos para entrenamiento y en datos para test.
 Script: pruebas_scikitlearn.py
 
@@ -45,7 +45,7 @@ Tenemos un archivo de datos (colores.csv) que incluye 865 nombres de colores jun
 Para obtener el nombre del color correctamente, calculamos una distancia (d) que nos dice como de cerca estamos del color y elegimos el que tiene la distancia mínima.
 d = abs (Rojo - ithRedColor) + (Verde - ithGreenColor) + (Azul - ithBlueColor).
 
-## Ejercicio 11 : Pruebas con TensorFlow
+## Ejercicio 11 : Pruebas con TensorFlow (Deep Learning)
 En este ejercicio se realiza algunas pruebas de sintáxis básica de TensorFlow.
 Script: pruebas_tensorflow.py
 
@@ -57,7 +57,7 @@ Script: primera_red_neuronal.py
 En este ejercicio se realiza un ejemplo de regresión lineal simple: y=mx+b.
 Script: regresion_lineal_simple_tf.py
 
-## Ejercicio 14 : Bibliotecas: Estimator API y Keras
+## Ejercicio 14 : Bibliotecas: Estimator API y Keras (Deep Learning)
 Ejemplos básicos sobre como utilizar Estimator API y Keras. 
 Script: estimator_keras.py
 
