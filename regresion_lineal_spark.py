@@ -84,3 +84,81 @@ unlabeled_data= test_data.select('features')
 unlabeled_data.show()
 predictions=lr_model.transform(unlabeled_data)
 predictions.show()
+
+#-----#
+# Ejercicio de consultoría basado en Regresión Lineal
+# Eres contratado por Hyundai Heavy Industries, empresa ubicada en Corea del Sur, que se dedica a la onstrucción de buques, especialmente de tanqueros para el transporte de petróleo y sus derivados.
+# Tu función es crear un modelo de predicción para estimar cuantos miembros para la tripulación necesitan los barcos  dependiendo de sus características.
+# Características: Nombre del barco, Línea de cruceros, Edad (a partir de 2013), Tonelaje (miles de toneladas), pasajeros (100s), Longitud (100s de pies),Cabañas (100s),Densidad de pasajero,Tripulación (100s)
+# Ojo:  el valor de la línea de crucero es una cadena! Usar StringIndexer de la documentación!
+# Como en cualquier proyecto del mundo real, aquí no hay respuestas "100% correctas".
+
+"""
+Description: Measurements of ship size, capacity, crew, and age for 158 cruise
+ships.
+
+Variables/Columns
+Ship Name     1-20
+Cruise Line   21-40
+Age (as of 2013)   46-48
+Tonnage (1000s of tons)   50-56
+passengers (100s)   58-64
+Length (100s of feet)  66-72
+Cabins  (100s)   74-80
+Passenger Density   82-88
+Crew  (100s)   90-96
+"""
+from pyspark.sql import SparkSession
+spark= SparkSession.builder.appName('Crucero').getOrCreate()
+df=spark.read.csv("cruise_ship_info.csv",inferSchema=True,header=True)
+df.printSchema()
+df.show()
+df.describe().show()
+# El Nombre del barco es una cadena arbitraria inútil, pero la línea de cruceros en sí misma puede ser útil. ¡Hagámoslo una variable categórica!
+# Vemos como el nombre de la línea de cruceros se repite varias veces
+df.groupBy('Cruise_line').count().show()
+from pyspark.ml.feature import StringIndexer
+indexer = StringIndexer(inputCol="Cruise_line", outputCol="cruise_cat") # cada línea de cruceros tiene su variable
+indexed = indexer.fit(df).transform(df)
+for item in indexed.head(5): # Mostramos las 5 primeras filas
+    print(item)
+    print("\n")
+from pyspark.ml.linalg import Vectors
+from pyspark.ml.feature import VectorAssembler
+indexed.columns
+assembler = VectorAssembler(
+  inputCols=['Age',
+             'Tonnage',
+             'passengers',
+             'length',
+             'cabins',
+             'passenger_density',
+             'cruise_cat'], # No añadimos crew porque es lo que queremos estimar
+    outputCol="features")
+output = assembler.transform(indexed)
+output.select("features", "crew").show()
+final_data = output.select("features", "crew")
+train_data,test_data= final_data.randomSplit([0.7,0.3])
+train_data.describe().show()
+test_data.describe().show()
+from pyspark.ml.regression import LinearRegression
+# Creamos un objeto de modelo de regresión lineal
+lr=LinearRegression(labelCol='crew')
+# Ajustamos el modelo a los datos y llamamos a este modelo lrModel
+lrModel= lr.fit(train_data)
+# Imprimimos los coeficientes e intersección para regresión lineal
+# La intersección (a menudo etiquetada como la constante) es el valor medio esperado de Y cuando todo X = 0. 
+# Y= a +bX
+print("Coefficients: {} Intercept: {}".format(lrModel.coefficients,lrModel.intercept))
+test_results = lrModel.evaluate(test_data)
+# R2 de 0.94 es bastante bueno, revisemos los datos un poco más
+from pyspark.sql.functions import corr
+df.select(corr('crew','passengers')).show() # correlación entre dos variables
+df.select(corr('crew','cabins')).show() # correlación entre dos variables
+
+"""
+De acuerdo, ¡entonces quizás tenga sentido! 
+Buenas noticias para nosotros, ¡esta es la información que podemos aportar a la empresa!
+"""
+
+
