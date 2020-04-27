@@ -151,6 +151,9 @@ lrModel= lr.fit(train_data)
 # Y= a +bX
 print("Coefficients: {} Intercept: {}".format(lrModel.coefficients,lrModel.intercept))
 test_results = lrModel.evaluate(test_data)
+print("RMSE: {}".format(test_results.rootMeanSquaredError)) # Raíz del error cuadrático medio 
+print("MSE: {}".format(test_results.meanSquaredError)) # Error cuadrático medio 
+print("R2: {}".format(test_results.r2)) # coeficiente de determinación (valores entre 0 y 1. El 1 es ajuste perfecto)
 # R2 de 0.94 es bastante bueno, revisemos los datos un poco más
 from pyspark.sql.functions import corr
 df.select(corr('crew','passengers')).show() # correlación entre dos variables
