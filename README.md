@@ -97,7 +97,7 @@ En este ejercicio se realiza pruebas de conceptos básicos de dataframes en Apac
 Archivos necesarios: appl_stock.csv, ContainsNull.csv, sales_info.csv,people.json, walmart_stock.csv,
 Script: pruebas_dataframes_spark.py
 
-## Ejercicio 23 : Ejemplos de Regresión Lineal en Apache Spark con PySpark y MLlib
+## Ejercicio 23 : Ejemplos de Regresión Lineal en Apache Spark con PySpark y MLlib (Spark para Machine Learning)
 En este ejercicio se realiza algunos ejemplos de regresión lineal en Apache Spark con PySpark y MLlib.
 Archivos necesarios: sample_linear_regression_data.txt, Ecommerce_Customers.csv, 
 Script: regresion_lineal_spark.py
