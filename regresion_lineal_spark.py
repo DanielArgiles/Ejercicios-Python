@@ -146,8 +146,8 @@ from pyspark.ml.regression import LinearRegression
 lr=LinearRegression(labelCol='crew')
 # Ajustamos el modelo a los datos y llamamos a este modelo lrModel
 lrModel= lr.fit(train_data)
-# Imprimimos los coeficientes e intersección para regresión lineal
-# La intersección (a menudo etiquetada como la constante) es el valor medio esperado de Y cuando todo X = 0. 
+# Imprimimos el coeficiente de regresión b (pendiente) e intercepto b. El modelo de regresión lineal encuentra el mejor valor para estos coeficientes y así obtener una línea que mejor se ajuste a los datos.
+# El intercepto (a menudo etiquetada como la constante a) es el valor medio esperado de Y cuando todo X = 0. 
 # Y= a +bX
 print("Coefficients: {} Intercept: {}".format(lrModel.coefficients,lrModel.intercept))
 test_results = lrModel.evaluate(test_data)
