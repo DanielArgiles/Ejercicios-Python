@@ -86,8 +86,8 @@ predictions=lr_model.transform(unlabeled_data)
 predictions.show()
 
 #-----#
-# Ejercicio de consultoría basado en Regresión Lineal
-# Eres contratado por Hyundai Heavy Industries, empresa ubicada en Corea del Sur, que se dedica a la onstrucción de buques, especialmente de tanqueros para el transporte de petróleo y sus derivados.
+# Proyecto de consultoría basado en Regresión Lineal
+# Eres contratado por Hyundai Heavy Industries, empresa ubicada en Corea del Sur, que se dedica a la construcción de buques, especialmente de tanqueros para el transporte de petróleo y sus derivados.
 # Tu función es crear un modelo de predicción para estimar cuantos miembros para la tripulación necesitan los barcos  dependiendo de sus características.
 # Características: Nombre del barco, Línea de cruceros, Edad (a partir de 2013), Tonelaje (miles de toneladas), pasajeros (100s), Longitud (100s de pies),Cabañas (100s),Densidad de pasajero,Tripulación (100s)
 # Ojo:  el valor de la línea de crucero es una cadena! Usar StringIndexer de la documentación!
