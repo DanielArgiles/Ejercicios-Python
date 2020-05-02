@@ -104,6 +104,7 @@ Script: regresion_lineal_spark.py
 
 ## Ejercicio 24 : Ejemplos de Regresión Logística (clasificación) en Apache Spark con PySpark y MLlib (Spark para Machine Learning)
 En este ejercicio se realiza algunos ejemplos de regresión logística (clasificación) así como un proyecto real de consultoría en Apache Spark con PySpark y MLlib.
+En el segundo ejemplo se aprende a desarrollar el código en Databricks. 
 Archivos necesarios: sample_libsvm_data.txt, titanic.csv,
 Script: regresion_logistica_spark.py
 
