@@ -46,5 +46,5 @@ acc_eval.evaluate(gbt_preds)
 # Importancia de la característica, algo que será interesante en el proyecto de consultoría
 rfc_model.featureImportances
 
-#------#
-Code Along Example
+#---Code Along Example---#
+
