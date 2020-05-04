@@ -47,4 +47,106 @@ acc_eval.evaluate(gbt_preds)
 rfc_model.featureImportances
 
 #---Code Along Example---#
+from pyspark.sql import SparkSession
+spark= SparkSession.builder.appName('tree').getOrCreate()
+data=spark.read.csv('College.csv',inferSchema=True,header=True)
+data.printSchema()
+data.head(1)
+from pyspark.ml.feature import VectorAssembler
+data.columns
+assembler= VectorAssembler (inputCols=['Apps',
+ 'Accept',
+ 'Enroll',
+ 'Top10perc',
+ 'Top25perc',
+ 'F_Undergrad',
+ 'P_Undergrad',
+ 'Outstate',
+ 'Room_Board',
+ 'Books',
+ 'Personal',
+ 'PhD',
+ 'Terminal',
+ 'S_F_Ratio',
+ 'perc_alumni',
+ 'Expend',
+ 'Grad_Rate'],outputCol='features')
+output=assembler.transform(data)
+# Tenemos que saber si private es 0 o 1
+from pyspark.ml.feature import StringIndexer
+indexer= StringIndexer(inputCol='Private',outputCol='PrivateIndex')
+output_fixed=indexer.fit(output).transform(output)
+# Vemos como hemos añadido el vector features y PrivateIndex como double
+output_fixed.printSchema()
+"""
+root
+ |-- School: string (nullable = true)
+ |-- Private: string (nullable = true)
+ |-- Apps: integer (nullable = true)
+ |-- Accept: integer (nullable = true)
+ |-- Enroll: integer (nullable = true)
+ |-- Top10perc: integer (nullable = true)
+ |-- Top25perc: integer (nullable = true)
+ |-- F_Undergrad: integer (nullable = true)
+ |-- P_Undergrad: integer (nullable = true)
+ |-- Outstate: integer (nullable = true)
+ |-- Room_Board: integer (nullable = true)
+ |-- Books: integer (nullable = true)
+ |-- Personal: integer (nullable = true)
+ |-- PhD: integer (nullable = true)
+ |-- Terminal: integer (nullable = true)
+ |-- S_F_Ratio: double (nullable = true)
+ |-- perc_alumni: integer (nullable = true)
+ |-- Expend: integer (nullable = true)
+ |-- Grad_Rate: integer (nullable = true)
+ |-- features: vector (nullable = true)
+ |-- PrivateIndex: double (nullable = false)
 
+"""
+final_data=output_fixed.select('features','PrivateIndex')
+train_data,test_data=final_data.randomSplit([0.7,0.3])
+from pyspark.ml.classification import (DecisionTreeClassifier,GBTClassifier,
+                                      RandomForestClassifier)
+from pyspark.ml import Pipeline
+dtc= DecisionTreeClassifier(labelCol='PrivateIndex',featuresCol='features')
+rfc= RandomForestClassifier(labelCol='PrivateIndex',featuresCol='features')
+gbt= GBTClassifier(labelCol='PrivateIndex',featuresCol='features') # Gradient Boosted Trees.
+
+dtc_model= dtc.fit(train_data)
+rfc_model= rfc.fit(train_data)
+gbt_model= gbt.fit(train_data)
+
+dtc_preds= dtc_model.transform(test_data)
+rfc_preds= rfc_model.transform(test_data)
+gbt_preds=gbt_model.transform(test_data)
+from pyspark.ml.evaluation import BinaryClassificationEvaluator
+my_binary_eval=BinaryClassificationEvaluator(labelCol='PrivateIndex')
+# Obtenemos una evaluación del DTC de 0.92
+print('DTC')
+print(my_binary_eval.evaluate(dtc_preds))
+# Obtenemos una evaluación del RFC de 0.97
+print('RFC')
+print(my_binary_eval.evaluate(rfc_preds))
+# Con GBT no tenemos probability ni prediction
+gbt_preds.printSchema()
+rfc_preds.printSchema()
+my_binary_eval2=BinaryClassificationEvaluator(labelCol='PrivateIndex',
+                                             rawPredictionCol='prediction')
+# Obtenemos una evaluación del GBT de 0.90
+print('GBT')
+print(my_binary_eval2.evaluate(gbt_preds))
+# Ahora obtenemos una evaluación de RFC mayor, de 0,98, al añadir árboles
+rfc= RandomForestClassifier(numTrees=150,labelCol='PrivateIndex',featuresCol='features')
+rfc_model= rfc.fit(train_data)
+rfc_preds= rfc_model.transform(test_data)
+from pyspark.ml.evaluation import BinaryClassificationEvaluator
+my_binary_eval=BinaryClassificationEvaluator(labelCol='PrivateIndex')
+print('RFC')
+print(my_binary_eval.evaluate(rfc_preds))
+
+from pyspark.ml.evaluation import MulticlassClassificationEvaluator
+acc_eval=MulticlassClassificationEvaluator(labelCol='PrivateIndex',
+                                           metricName='accuracy')
+rfc_acc=acc_eval.evaluate(rfc_preds)
+# Obtenemos una exactitud (accuracy) de 0,93
+rfc_acc
