@@ -108,4 +108,9 @@ En el segundo ejemplo se aprende a desarrollar el código en Databricks.
 Archivos necesarios: sample_libsvm_data.txt, titanic.csv, customer_churn.csv, new_customers.csv,
 Script: regresion_logistica_spark.py
 
+## Ejercicio 25 : Ejemplos de Árboles de Decisión y Bosques Aleatorios en Apache Spark con PySpark y MLlib (Spark para Machine Learning)
+En este ejercicio se realiza algunos ejemplos de Árboles de Decisión y Bosques Aleatorios así como un proyecto real de consultoría en Apache Spark con PySpark y MLlib.
+Archivos necesarios: sample_libsvm_data.txt,
+Script: arbolesdecision_bosquesaleatorios_spark.py
+
 ## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django)
