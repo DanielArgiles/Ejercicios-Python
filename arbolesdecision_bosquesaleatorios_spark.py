@@ -217,6 +217,7 @@ final_data.head(1)
 # SparseVector(int size, int[] indices, double[] values) 
 # SparseVector(4, {0: 0.027, 1: 0.0194, 2: 0.9281, 3: 0.0255})
 # A :(0: 0.027), B:(1: 0.0194), C:(2: 0.9281),D:(3: 0.0255)
+#  índice:valor
 # Esto quiere decir que la letra C es la característica más importante, el conservante que está causando el deterioro. 
 rfc_model.featureImportances
 
