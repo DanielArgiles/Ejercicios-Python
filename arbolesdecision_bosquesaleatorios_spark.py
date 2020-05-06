@@ -150,3 +150,73 @@ acc_eval=MulticlassClassificationEvaluator(labelCol='PrivateIndex',
 rfc_acc=acc_eval.evaluate(rfc_preds)
 # Obtenemos una exactitud (accuracy) de 0,93
 rfc_acc
+
+#---Proyecto de consultoría---#
+# Ha sido contratado por una compañía de alimentos para perros en St. Louis, Missouri, para tratar de predecir por qué algunos lotes de alimentos para perros se están echando a perder mucho más rápido de lo previsto.
+# La compañía de alimentos para perros primero mezcla un lote de conservantes que contiene 4 químicos conservantes diferentes (A, B, C, D) y luego se completa con un químico "relleno".
+# Los científicos de alimentos creen que uno de los conservantes A, B, C o D está causando el problema, ¡pero necesitan su ayuda para descubrir cuál!
+# Si bien utilizaremos Machine Learning para resolver esto, no será con su flujo de trabajo dividido típico de entrenamiento / prueba.
+"""
+Datos:
+Pres_A: porcentaje de conservante A en la mezcla
+Pres_B: porcentaje de conservante B en la mezcla
+Pres_C: porcentaje de conservante C en la mezcla
+Pres_D: porcentaje de conservante D en la mezcla
+Estropeado: etiqueta que indica si el lote de comida para perros se estropeó o no.
+"""
+
+# ¡Mencionamos que estos clasificadores de métodos de árbol tenían un atributo .featureImportances disponible!
+# Por lo tanto, podemos crear un modelo, ajustarlo en todos los datos y luego verificar qué característica (conservante) estaba causando el deterioro.
+"""
+.featureImportances returns:
+SparseVector(4, {0: 0.0026, 1: 0.0089, 2: 0.9686, 3: 0.0199})
+ Corresponding to a features column:
+Row(features=DenseVector([4.0, 2.0, 12.0, 3.0]), Spoiled=1.0)
+"""
+# Este proyecto de consultoría muestra cómo podemos aplicar el aprendizaje automático de una manera diferente a los ejemplos anteriores (sin división datos de entrenamiento y test).
+# Lo que realmente queremos entender es la relación fundamental entre cada columna de características y la propia etiqueta.
+
+from pyspark.sql import SparkSession
+spark= SparkSession.builder.appName('tree_consult').getOrCreate()
+data= spark.read.csv('dog_food.csv',inferSchema=True,header=True)
+
+# Muestro la fila 1
+# [Row(A=4, B=2, C=12.0, D=3, Spoiled=1.0)]
+# Tengo los 4 conservantes, y luego si el lote fue o no estropeado (1 si, 0 no)
+data.head(1)
+
+from pyspark.ml.feature import VectorAssembler
+
+# ['A', 'B', 'C', 'D', 'Spoiled']
+data.columns
+
+assembler=VectorAssembler(inputCols=['A','B','C','D'],outputCol='features')
+output=assembler.transform(data)
+from pyspark.ml.classification import RandomForestClassifier
+rfc=RandomForestClassifier(labelCol='Spoiled',featuresCol='features')
+output.printSchema()
+"""
+root
+ |-- A: integer (nullable = true)
+ |-- B: integer (nullable = true)
+ |-- C: double (nullable = true)
+ |-- D: integer (nullable = true)
+ |-- Spoiled: double (nullable = true)
+ |-- features: vector (nullable = true)
+"""
+final_data=output.select(['features','Spoiled'])
+final_data.show()
+
+# Ahora entrenaremos a nuestro clasificador en los datos reales
+rfc_model=rfc.fit(final_data)
+
+# [Row(features=DenseVector([4.0, 2.0, 12.0, 3.0]), Spoiled=1.0)]
+# A:(4.0), B:(2.0), C:(12.0), D:(3.0)
+final_data.head(1)
+
+# SparseVector(int size, int[] indices, double[] values) 
+# SparseVector(4, {0: 0.027, 1: 0.0194, 2: 0.9281, 3: 0.0255})
+# A :(0: 0.027), B:(1: 0.0194), C:(2: 0.9281),D:(3: 0.0255)
+# Esto quiere decir que la letra C es la característica más importante, el conservante que está causando el deterioro. 
+rfc_model.featureImportances
+
