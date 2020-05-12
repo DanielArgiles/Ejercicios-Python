@@ -115,7 +115,7 @@ Script: arbolesdecision_bosquesaleatorios_spark.py
 
 ## Ejercicio 26: Ejemplos de K-means Clustering en Apache Spark con Pyspark y MLlib (Spark para Machine Learning)
 En este ejercicio se realiza algunos ejemplos de K-means Clustering (algoritmo de aprendizaje No supervisado, es decir: No hay división de datos training/test) en Apache Spark con PySpark y MLlib. También se realiza un proyecto real de consultoría.
-Archivos necesarios: sample_kmeans_data.txt,
+Archivos necesarios: sample_kmeans_data.txt, seeds_dataset.csv,
 Script: kmeans_clustering.py
 
 ## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django)
