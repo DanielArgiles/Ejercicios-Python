@@ -236,4 +236,143 @@ only showing top 20 rows
 """
 
 #---Consulting Project---#
+# ¡Es hora de que vayas a San Francisco para ayudar a una startup tecnológica!
+# ¡Han sido pirateados recientemente y necesitan tu ayuda para conocer a los piratas informáticos!
+# Afortunadamente, sus ingenieros forenses han obtenido datos valiosos sobre los hacks, incluida información como el tiempo de sesión, las ubicaciones, la velocidad de escritura de wpm, etc.
+"""
+'Session_Connection_Time': How long the session lasted in minutes
+'Bytes Transferred': Number of MB transferred during session
+'Kali_Trace_Used': Indicates if the hacker was using Kali Linux
+'Servers_Corrupted': Number of server corrupted during the attack
+'Pages_Corrupted': Number of pages illegally accessed
+'Location': Location attack came from (Probably useless because the hackers used VPNs)
+'WPM_Typing_Speed': Their estimated typing speed based
 
+"""
+# La empresa de tecnología tiene 3 posibles piratas informáticos que perpetraron el ataque.
+# Están seguros de los primeros dos hackers, pero no están muy seguros de si el tercer hacker estuvo involucrado o no.
+# Han pedido tu ayuda
+# Un último hecho clave, el ingeniero forense sabe que los piratas informáticos intercambian los ataques.
+# Lo que significa que cada uno debería tener aproximadamente la misma cantidad de ataques.
+# Por ejemplo, si hubo 100 ataques en total, entonces, en una situación de 2 hackers, cada uno debería tener alrededor de 50 hacks, en una situación de tres hackers, cada uno tendría unos 33 hacks.
+
+from pyspark.sql import SparkSession
+spark= SparkSession.builder.appName('cluster').getOrCreate()
+dataset= spark.read.csv('hack_data.csv',header=True,inferSchema=True)
+
+# Row(Session_Connection_Time=8.0, Bytes Transferred=391.09, Kali_Trace_Used=1, Servers_Corrupted=2.96, Pages_Corrupted=7.0, Location='Slovenia', WPM_Typing_Speed=72.37)
+dataset.head()
+
+from pyspark.ml.clustering import KMeans
+from pyspark.ml.feature import VectorAssembler
+dataset.columns
+"""
+['Session_Connection_Time',
+ 'Bytes Transferred',
+ 'Kali_Trace_Used',
+ 'Servers_Corrupted',
+ 'Pages_Corrupted',
+ 'Location',
+ 'WPM_Typing_Speed']
+"""
+
+# Solo columnas con valores numéricos
+feat_cols=['Session_Connection_Time',
+ 'Bytes Transferred',
+ 'Kali_Trace_Used',
+ 'Servers_Corrupted',
+ 'Pages_Corrupted',
+ 'WPM_Typing_Speed']
+
+assembler= VectorAssembler(inputCols=feat_cols,outputCol='features')
+final_data= assembler.transform(dataset)
+final_data.printSchema()
+"""
+root
+ |-- Session_Connection_Time: double (nullable = true)
+ |-- Bytes Transferred: double (nullable = true)
+ |-- Kali_Trace_Used: integer (nullable = true)
+ |-- Servers_Corrupted: double (nullable = true)
+ |-- Pages_Corrupted: double (nullable = true)
+ |-- Location: string (nullable = true)
+ |-- WPM_Typing_Speed: double (nullable = true)
+ |-- features: vector (nullable = true)
+"""
+
+# Escalamos
+from pyspark.ml.feature import StandardScaler
+scaler=StandardScaler(inputCol='features',outputCol='scaledFeatures')
+scaler_model=scaler.fit(final_data)
+cluster_final_data=scaler_model.transform(final_data)
+cluster_final_data.printSchema()
+"""
+root
+ |-- Session_Connection_Time: double (nullable = true)
+ |-- Bytes Transferred: double (nullable = true)
+ |-- Kali_Trace_Used: integer (nullable = true)
+ |-- Servers_Corrupted: double (nullable = true)
+ |-- Pages_Corrupted: double (nullable = true)
+ |-- Location: string (nullable = true)
+ |-- WPM_Typing_Speed: double (nullable = true)
+ |-- features: vector (nullable = true)
+ |-- ScaledFeatures: vector (nullable = true)
+"""
+
+kmeans2= KMeans(featuresCol='scaledFeatures',k=2)
+kmeans3= KMeans(featuresCol='scaledFeatures',k=3)
+
+model_k2=kmeans2.fit(cluster_final_data)
+model_k3=kmeans3.fit(cluster_final_data)
+
+model_k3.transform(cluster_final_data).select('prediction').show()
+"""
++----------+
+|prediction|
++----------+
+|         2|
+|         1|
+|         2|
+|         2|
+|         1|
+|         2|
+|         2|
+|         2|
+|         2|
+|         2|
+|         2|
+|         1|
+|         1|
+|         1|
+|         2|
+|         2|
+|         2|
+|         1|
+|         2|
+|         1|
++----------+
+only showing top 20 rows
+"""
+
+# Tenemos 3 grupos, pero no es una división par. Recuentos desiguales
+model_k3.transform(cluster_final_data).groupBy('prediction').count().show()
+"""
++----------+-----+
+|prediction|count|
++----------+-----+
+|         1|   84|
+|         2|   83|
+|         0|  167|
++----------+-----+
+"""
+
+# Ahora tenemos una división exacta e igual a 167 en ambos grupos 0 y 1.
+# Por tanto, tendremos 2 hackers.
+model_k2.transform(cluster_final_data).groupBy('prediction').count().show()
+"""
++----------+-----+
+|prediction|count|
++----------+-----+
+|         1|  167|
+|         0|  167|
++----------+-----+
+"""
