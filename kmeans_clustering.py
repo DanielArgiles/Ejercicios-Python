@@ -207,3 +207,33 @@ print(centers)
 model.transform(final_data).show()
 # Obtengo la predicción para cada grupo. Vemos que son 0,1,2
 model.transform(final_data).select('prediction').show()
+"""
++----------+
+|prediction|
++----------+
+|         0|
+|         0|
+|         0|
+|         0|
+|         0|
+|         0|
+|         0|
+|         0|
+|         1|
+|         0|
+|         0|
+|         0|
+|         0|
+|         0|
+|         0|
+|         0|
+|         0|
+|         0|
+|         0|
+|         2|
++----------+
+only showing top 20 rows
+"""
+
+#---Consulting Project---#
+
