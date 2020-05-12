@@ -119,3 +119,91 @@ results:
 
 Ahora observamos como hay 3 grupos 0,1,2
 """
+
+#---Example Code Along---#
+# Trabajaremos a través de un conjunto de datos real que contiene algunos datos sobre tres tipos de semillas distintos.
+# ¡Este es un aprendizaje no supervisado!
+# ¡Lo que significa que no tenemos las etiquetas originales para realizar algún tipo de prueba
+
+from pyspark.sql import SparkSession
+spark= SparkSession.builder.appName('cluster').getOrCreate()
+dataset= spark.read.csv('seeds_dataset.csv',header=True,inferSchema=True)
+dataset.printSchema()
+""" 
+Tenemos 3 variedades diferentes de trigo
+Y 7 características:
+root
+ |-- area: double (nullable = true)
+ |-- perimeter: double (nullable = true)
+ |-- compactness: double (nullable = true)
+ |-- length_of_kernel: double (nullable = true)
+ |-- width_of_kernel: double (nullable = true)
+ |-- asymmetry_coefficient: double (nullable = true)
+ |-- length_of_groove: double (nullable = true)
+"""
+
+# [Row(area=15.26, perimeter=14.84, compactness=0.871, length_of_kernel=5.763, width_of_kernel=3.312, asymmetry_coefficient=2.221, length_of_groove=5.22)]
+dataset.head(1)
+
+# No hay una etiqueta real que indique el tipo de semilla o a que grupos pertenecen, pero si sabemos que hay 3 variedades diferentes de trigo
+# Nuestro conocimiento es K=3
+from pyspark.ml.clustering import KMeans
+from pyspark.ml.feature import VectorAssembler
+
+dataset.columns
+"""
+['area',
+ 'perimeter',
+ 'compactness',
+ 'length_of_kernel',
+ 'width_of_kernel',
+ 'asymmetry_coefficient',
+ 'length_of_groove']
+"""
+
+assembler=VectorAssembler(inputCols=dataset.columns,
+                         outputCol='features')
+final_data=assembler.transform(dataset)
+final_data.printSchema()
+"""
+root
+ |-- area: double (nullable = true)
+ |-- perimeter: double (nullable = true)
+ |-- compactness: double (nullable = true)
+ |-- length_of_kernel: double (nullable = true)
+ |-- width_of_kernel: double (nullable = true)
+ |-- asymmetry_coefficient: double (nullable = true)
+ |-- length_of_groove: double (nullable = true)
+ |-- features: vector (nullable = true)
+"""
+
+# Escalamos datos
+from pyspark.ml.feature import StandardScaler
+scaler=StandardScaler(inputCol='features',
+                     outputCol='scaledFeatures',
+                        )
+scaler_model=scaler.fit(final_data)
+final_data=scaler_model.transform(final_data)
+
+#[Row(area=15.26, perimeter=14.84, compactness=0.871, length_of_kernel=5.763, width_of_kernel=3.312, asymmetry_coefficient=2.221, length_of_groove=5.22, features=DenseVector([15.26, 14.84, 0.871, 5.763, 3.312, 2.221, 5.22]), scaledFeatures=DenseVector([5.2445, 11.3633, 36.8608, 13.0072, 8.7685, 1.4772, 10.621]))]
+final_data.head(1)
+
+kmeans= KMeans(featuresCol='scaledFeatures',k=3)
+model= kmeans.fit(final_data)
+
+# Obtengo un wssse= 428.6839522475977
+print('WSSSE')
+print(model.computeCost(final_data))
+
+centers=model.clusterCenters()
+# 3 arrays, porque K=3. De 7 dimensiones cada uno.
+print(centers)
+"""
+[array([ 4.9418976 , 10.95423183, 37.31729526, 12.41525595,  8.61430248,
+        1.78007698, 10.38784356]), array([ 6.3407095 , 12.39263108, 37.41143125, 13.92892299,  9.77251635,
+        2.42396447, 12.28547936]), array([ 4.078007  , 10.15076404, 35.87686106, 11.81860981,  7.5430707 ,
+        3.17727834, 10.39174095])]
+"""
+model.transform(final_data).show()
+# Obtengo la predicción para cada grupo. Vemos que son 0,1,2
+model.transform(final_data).select('prediction').show()
