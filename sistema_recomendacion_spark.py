@@ -123,6 +123,7 @@ rmse=evaluator.evaluate(predictions)
 print('RMSE')
 print(rmse)
 
+# Veamos todas las películas que ha visto el usuario 11
 single_user= test.filter(test['userId']==11).select(['movieId','userId'])
 single_user.show()
 """
