@@ -118,4 +118,9 @@ En este ejercicio se realiza algunos ejemplos de K-means Clustering (algoritmo d
 Archivos necesarios: sample_kmeans_data.txt, seeds_dataset.csv, hack_data.csv,
 Script: kmeans_clustering.py
 
+## Ejercicio 27: Ejemplo de Sistema de Recomendación en Apache Spark con Pyspark y MLlib (Spark para Machine Learning)
+En este ejercicio se realiza un ejemplo para saber como funcionan los sistemas de recomendación en Apache Spark con PySpark y MLlib.
+Archivo necesario: movielens_ratings.csv,
+Script: sistema_recomendacion_spark.py
+
 ## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django)
