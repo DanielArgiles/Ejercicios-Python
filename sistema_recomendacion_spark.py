@@ -67,6 +67,10 @@ only showing top 20 rows
 """
 
 data.describe().show()
+# Observamos que tenemos 1501 entradas de datos o filas.
+# 30 usuarios (del 0 al 29)
+# 5 Valores de ranting (del 1.0 al 5.0)
+# 100 movieId (del 0 al 99)
 """
 +-------+------------------+------------------+------------------+
 |summary|           movieId|            rating|            userId|
