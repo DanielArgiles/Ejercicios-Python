@@ -2,7 +2,7 @@
 Este es el campo del aprendizaje automático que se centra en la creación de modelos a partir de una fuente de datos de texto (directamente de artículos de palabras).
 
 Sugerencias opcionales de lectura:
-Artículo de Wikipedia sobre PNL
+Artículo de Wikipedia sobre NLP
 Libro NLTK (biblioteca de Python separada)
 Fundamentos del procesamiento estadístico del lenguaje natural (Manning)
 
