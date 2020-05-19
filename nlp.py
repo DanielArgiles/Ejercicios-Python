@@ -183,7 +183,7 @@ ngram.transform(wordDataFrame).select('grams').show(truncate=False)
 |[I wish java, wish java could, java could use, could use case, use case classes]|
 |[Logistic regression models, regression models are, models are neat]            |
 +----------
-
+"""
 # TOOLS FOR NLP PART TWO
 from pyspark.sql import SparkSession
 spark=SparkSession.builder.appName('nlp').getOrCreate()
