@@ -123,4 +123,8 @@ En este ejercicio se realiza un ejemplo para saber como funcionan los sistemas d
 Archivo necesario: movielens_ratings.csv,
 Script: sistema_recomendacion_spark.py
 
+## Ejercicio 28: Ejemplo de Natural Language Processing (NLP) en Apache Spark con Pyspark y MLlib (Spark para Machine Learning)
+En este ejercicio se realiza algunos ejemplos de Natural Language Processing (NLP) en Apache Spark con PySpark y MLlib.
+Script: nlp.py
+
 ## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django)
