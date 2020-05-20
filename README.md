@@ -116,7 +116,7 @@ Script: arbolesdecision_bosquesaleatorios_spark.py
 ## Ejercicio 26: Ejemplos de K-means Clustering en Apache Spark con Pyspark y MLlib (Spark para Machine Learning)
 En este ejercicio se realiza algunos ejemplos de K-means Clustering (algoritmo de aprendizaje No supervisado, es decir: No hay división de datos training/test) en Apache Spark con PySpark y MLlib. También se realiza un proyecto real de consultoría.
 Archivos necesarios: sample_kmeans_data.txt, seeds_dataset.csv, hack_data.csv,
-Script: kmeans_clustering.py
+Script: kmeans_clustering_spark.py
 
 ## Ejercicio 27: Ejemplo de Sistema de Recomendación en Apache Spark con Pyspark y MLlib (Spark para Machine Learning)
 En este ejercicio se realiza un ejemplo para saber como funcionan los sistemas de recomendación en Apache Spark con PySpark y MLlib.
@@ -126,6 +126,6 @@ Script: sistema_recomendacion_spark.py
 ## Ejercicio 28: Ejemplo de Natural Language Processing (NLP) en Apache Spark con Pyspark y MLlib (Spark para Machine Learning)
 En este ejercicio se realiza algunos ejemplos de Natural Language Processing (NLP) en Apache Spark con PySpark y MLlib.
 Archivo necesario: smsspamcollection.rar,
-Script: nlp.py
+Script: nlp_spark.py
 
 ## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django)
