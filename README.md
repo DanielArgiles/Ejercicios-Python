@@ -128,4 +128,8 @@ En este ejercicio se realiza algunos ejemplos de Natural Language Processing (NL
 Archivo necesario: smsspamcollection.rar,
 Script: nlp_spark.py
 
+## Ejercicio 29: Ejemplos de Spark Streaming
+En este ejercicio se realiza un ejemplo de Spark Streaming con Python, así como un proyecto final, en el que se crea una aplicación simple que determina la popularidad de las etiquetas asociadas con los tweets entrantes transmitidos en vivo desde Twitter.
+Script: spark_streaming.py
+
 ## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django)
