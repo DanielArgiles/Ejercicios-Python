@@ -132,4 +132,10 @@ Script: nlp_spark.py
 En este ejercicio se realiza un ejemplo de Spark Streaming con Python, así como un proyecto final, en el que se crea una aplicación simple que determina la popularidad de las etiquetas asociadas con los tweets entrantes transmitidos en vivo desde Twitter.
 Script: spark_streaming.py, TweetRead.py
 
+## Ejercicio 30: Clasificador de imágenes con CIFAR-10 (Deep Learning)
+En este ejercicio se construye una aplicación cuya función es clasificar imágenes según su categoría o clase.
+Para ello hacemos uso del dataset CIFAR-10, el cual incluye 60.000 fotos divididas en 10 clases y está disponible en el módulo de conjuntos de datos de Keras.
+El código podemos dividirlo en 2 partes: Un modelo de aprendizaje basado en la creación de una CNN (Red Neuronal Convolucional) y una interfaz gráfica. 
+Script: clasificador_imagen.py
+
 ## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django)
