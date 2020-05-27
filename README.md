@@ -138,4 +138,8 @@ Para ello hacemos uso del dataset CIFAR-10, el cual incluye 60.000 fotos dividid
 El código podemos dividirlo en 2 partes: Un modelo de aprendizaje basado en la creación de una CNN (Red Neuronal Convolucional) y una interfaz gráfica. 
 Script: clasificador_imagen.py
 
+## Ejercicio 31: Reconocimiento facial en tiempo real con OpenCV
+En este ejercicio se construye una aplicacion de reconocimiento facial haciendo uso del algoritmo de clasificación en cascada Haar.
+Script: reconocimiento_facial.py
+
 ## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django)
