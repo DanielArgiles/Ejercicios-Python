@@ -142,4 +142,4 @@ Script: clasificador_imagen.py
 En este ejercicio se construye una aplicacion de reconocimiento facial haciendo uso del algoritmo de clasificación en cascada Haar.
 Script: reconocimiento_facial.py
 
-## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django)
+## Pendiente ejercicios Python para automatización, RPA, testing (pytest), mobile & web apps (django), BBDD
